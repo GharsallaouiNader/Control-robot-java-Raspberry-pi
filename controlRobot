@@ -1,17 +1,17 @@
-#author : gharsallaoui nader & tiouajni Samir & Selmi Rami  
-#comment : for internet of things challange 
-#lib gpio : Wiring PI low level library to manipulate GPIO using command-line
+//author : gharsallaoui nader & tiouajni Samir & Selmi Rami  
+//comment : for internet of things challange 
+//lib gpio : Wiring PI low level library to manipulate GPIO using command-line
 import java.io.*;
 import java.net.*;
-public class test {
+public class server {
 	public static void main(String[] args) throws IOException {
 	DatagramSocket serverSocket = new DatagramSocket(13000);
 		byte[] receiveData = new byte[1];
 		System.out.println("waiting for commande .../n");
 		Process p = Runtime.getRuntime().exec("sudo gpio -g mode 18 output");
-		Process p = Runtime.getRuntime().exec("sudo gpio -g mode 23 output");
-		Process p = Runtime.getRuntime().exec("sudo gpio -g mode 24 output");
-		Process p = Runtime.getRuntime().exec("sudo gpio -g mode 25 output");
+		p = Runtime.getRuntime().exec("sudo gpio -g mode 23 output");
+		p = Runtime.getRuntime().exec("sudo gpio -g mode 24 output");
+		p = Runtime.getRuntime().exec("sudo gpio -g mode 25 output");
 		while(true)
 			{
 			DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
@@ -21,34 +21,34 @@ public class test {
 			if(cmd.equals("r"))
 				{
 				System.out.println("running.. ");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 18 1");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 23 0");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 18 1");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 23 0");
 				}
 			if(cmd.equals("s"))
 				{
 				System.out.println("stoped");
-				Process p =Runtime.getRuntime().exec("sudo gpio -g write 18 0");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 23 0");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 24 0");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 25 0");
+				p =Runtime.getRuntime().exec("sudo gpio -g write 18 0");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 23 0");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 24 0");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 25 0");
 				}
 			if(cmd.equals("l"))
 				{
 				System.out.println("left ..");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 24 1");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 25 0");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 24 1");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 25 0");
 				}
 			if(cmd.equals("i"))
 				{
 				System.out.println("right ..");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 25 1");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 24 0");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 25 1");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 24 0");
 				}
 			if(cmd.equals("b"))
 				{
 				System.out.println("back ..");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 18 0");
-				Process p = Runtime.getRuntime().exec("sudo gpio -g write 23 1");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 18 0");
+				p = Runtime.getRuntime().exec("sudo gpio -g write 23 1");
 				}
 				
 				}
